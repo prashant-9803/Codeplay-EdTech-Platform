@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "*",
     credentials: true,
   })
 );
@@ -50,19 +50,10 @@ app.use("/api/v1/reach", contactUsRoute)
 
 //default route
 app.get("/", (req,res) => {
-    res.send("<h1>This is homepage</h1>")
     return res.json({
         success: true,
         message: "Your server is up and running....."
     })
-})
-
-app.get("/contact", (req,res) => {
-    res.send("<h1>THis is contact page</h1>")
-    return res.json({
-      success: true,
-      message: "Your server is up and running....."
-  })
 })
 
 
